@@ -61,6 +61,8 @@ function displayMarker(place) {
 
     infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
     infowindow.open(map, marker);
+
+    $('<div id="mapInfo">주소 : '+place.address+'<br/>신주소 : '+ place.newAddress +'<br/>전화번호 : '+place.phone+'</div><br/>').insertAfter("#map");
 }
 function parseQuery ( query ) {
    var Params = new Object ();
