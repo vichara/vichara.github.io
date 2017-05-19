@@ -20,6 +20,10 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 // 장소 검색 객체를 생성합니다
 var ps = new daum.maps.services.Places();
 
+var condition = params.q.indexOf('(');
+
+params.q = condition > -1 && params.q.substring(0,condition) || params.q;
+
 // 키워드로 장소를 검색합니다
 ps.keywordSearch(params.q, placesSearchCB);
 
@@ -63,6 +67,8 @@ function displayMarker(place) {
     infowindow.open(map, marker);
 
     $('<div id="mapInfo">주소 : '+place.address+'<br/>신주소 : '+ place.newAddress +'<br/>전화번호 : '+place.phone+'</div><br/>').insertAfter("#map");
+
+    isEmpty = false;
 }
 function parseQuery ( query ) {
    var Params = new Object ();
