@@ -35,11 +35,9 @@ function placesSearchCB (status, data, pagination) {
         // LatLngBounds 객체에 좌표를 추가합니다
         var bounds = new daum.maps.LatLngBounds();
 
-        for (var i=0; i<data.places.length; i++) {
-			if(i == 0) {
-				displayMarker(data.places[i]);
-				bounds.extend(new daum.maps.LatLng(data.places[i].latitude, data.places[i].longitude));
-			}
+        if (data && data.places && data.places.length) {
+        	displayMarker(data.places[0]);
+			bounds.extend(new daum.maps.LatLng(data.places[0].latitude, data.places[0].longitude));
         }
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
