@@ -45,6 +45,9 @@ function placesSearchCB (status, data, pagination) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         map.setBounds(bounds);
     }
+    else {
+    	$("#map").length > 0 && $("#map").remove();
+    }
 }
 
 // 지도에 마커를 표시하는 함수입니다
