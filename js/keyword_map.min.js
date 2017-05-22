@@ -68,7 +68,7 @@ function displayMarker(place) {
     infowindow.open(map, marker);
 
     $('<div id="mapInfo">주소 : '+place.address+'<br/>신주소 : '+ place.newAddress
-    		+ place.phone ? '<br/>전화번호 : <a href="tel:' + place.phone + '">' + place.phone + ' (터치하여 전화걸기)</a>' : ''
+    		+ (place.phone ? '<br/>전화번호 : <a href="tel:' + place.phone + '">' + place.phone + ' (터치하여 전화걸기)</a>' : '')
     		+'</div><br/>').insertAfter("#map");
 
     isEmpty = false;
